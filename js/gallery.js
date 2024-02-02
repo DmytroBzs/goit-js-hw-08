@@ -69,7 +69,7 @@ const gallery = document.querySelector(".gallery");
 const galleryItem = images
   .map(
     (image) => `<li class="gallery-item">
-<a class="gallery-link" href="large-image.jpg" style="cursor: url('./icons.svg#hand-icon') 44 44, auto;">
+<a class="gallery-link" href="${image.original}" style="cursor: url('./icons.svg'), auto;">
   <img
     class="gallery-image"
     src="${image.preview}"
@@ -99,6 +99,7 @@ function scaleImg(event) {
     function handleKeydown(event) {
       if (event.key === "Escape") {
         instance.close();
+        window.removeEventListener("keydown", handleKeydown);
       }
     }
   }
